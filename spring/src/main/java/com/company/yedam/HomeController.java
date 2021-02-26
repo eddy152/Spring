@@ -41,13 +41,4 @@ public class HomeController {
 		
 		return "home";
 	}
-	
-	@Autowired EmpDAO dao;
-	
-	@RequestMapping("/ajaxEmpList")
-	@ResponseBody
-	public List<EmpVO> ajaxEmpList(){
-		return dao.select();
-	}
-	
 }

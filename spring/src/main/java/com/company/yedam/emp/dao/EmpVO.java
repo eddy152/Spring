@@ -2,6 +2,8 @@ package com.company.yedam.emp.dao;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Component
 public class EmpVO {
 	private String employee_id;
 	private String first_name;

@@ -5,20 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class JobDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
-	
-	//singletone
-	private static JobDAO instance;
-	public static JobDAO getInstance() {
-		if( instance == null ) {
-			instance = new JobDAO();
-		}
-		return instance;
-	}
-	
+		
 	public ArrayList<JobVO> select() {
 		ArrayList<JobVO> list = new ArrayList<JobVO>();
 		try {

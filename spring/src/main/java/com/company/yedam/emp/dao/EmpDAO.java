@@ -128,16 +128,18 @@ public class EmpDAO {
 			// 1.connect (연결)
 			conn = JdbcUtil.connect();
 			// 2.statement (구문)
-			String sql = "INSERT INTO EMPLOYEES(EMPLOYEE_ID," + " LAST_NAME," + " EMAIL," + " HIRE_DATE," + " JOB_ID," + " DEPARTMENT_ID)"
-					+ " VALUES(?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO EMPLOYEES(EMPLOYEE_ID," + " FIRST_NAME," +" LAST_NAME," + " EMAIL," + " PHONE_NUMBER," + " HIRE_DATE," + " JOB_ID," + " DEPARTMENT_ID)"
+					+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			// 3.execute (실행)
 			pstmt.setString(1, vo.getEmployee_id());
-			pstmt.setString(2, vo.getLast_name());
-			pstmt.setString(3, vo.getEmail());
-			pstmt.setDate(4, vo.getHire_date());
-			pstmt.setString(5, vo.getJob_id());
-			pstmt.setString(6, vo.getDepartment_id());
+			pstmt.setString(2, vo.getFirst_name());
+			pstmt.setString(3, vo.getLast_name());
+			pstmt.setString(4, vo.getEmail());
+			pstmt.setString(5, vo.getPhone_number());
+			pstmt.setDate(6, vo.getHire_date());
+			pstmt.setString(7, vo.getJob_id());
+			pstmt.setString(8, vo.getDepartment_id());
 			int r = pstmt.executeUpdate();
 			System.out.println(r + "건이 등록됨");
 			// 4.resultset (select라면 조회결과처리)

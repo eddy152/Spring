@@ -5,27 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DeptDAO {
 
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	//singletone
-	private static DeptDAO instance;
-	public static DeptDAO getInstance() {
-		if( instance == null ) {
-			instance = new DeptDAO();
-		}
-		return instance;
-	}
-	
 	public ArrayList<DeptVO> select() {
 		ArrayList<DeptVO> list = new ArrayList<DeptVO>();
 		try {
 			conn = JdbcUtil.connect();
 			
-			String sql = "SELECT * FROM DEPARTMENTS ORDER BY MANAGER_ID";
+			String sql = "SELECT DISTINCT * FROM DEPARTMENTS ORDER BY MANAGER_ID";
 			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
